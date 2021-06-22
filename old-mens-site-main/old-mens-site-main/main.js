@@ -1,3 +1,16 @@
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+for (let smoothLink of smoothLinks) {
+    smoothLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        const id = smoothLink.getAttribute('href');
+
+        document.querySelector(id).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+}; 
+
 ScrollOut({
   /* options */
 });
@@ -31,3 +44,5 @@ var mapOptions = {
     center: new google.maps.LatLng(43.63917545700994, -79.38949699497081), zoom: 10
 };
 var map = new google.maps.Map(mapCanvas, mapOptions);
+
+
